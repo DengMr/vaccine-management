@@ -38,26 +38,25 @@ var hours = new Date().getHours().toString(),
     data = {
         date: today,
         hours: hours,
-        T: Math.floor(Math.random() * 2 + 3)
+        T: Math.floor(Math.random() * 2 + 3) + 6
     }
 
+db.update(dataList.length - 1, data)
 
-// db.update(dataList.length, data)
+// for (let i = 20; i <= 31; i++) {
+//     for (let j = 0; j <= 23; j++) {
+//         db.add({
+//             date: `2018-05-${i < 10 ? '0' + i : i}`,
+//             hours: j < 10 ? '0' + j : '' + j,
+//             T: Math.floor(Math.random() * 2 + 3)
+//         })
+//     }
+// }
 
-for (let i = 20; i <= 31; i++) {
-    for (let j = 0; j <= 23; j++) {
-        db.add({
-            date: `2018-05-${i < 10 ? '0' + i : i}`,
-            hours: j < 10 ? '0' + j : '' + j,
-            T: Math.floor(Math.random() * 2 + 3)
-        })
-    }
-}
-
-for (let j = 0; j <= 16; j++) {
-    db.add({
-        date: `2018-06-01`,
-        hours: j < 10 ? '0' + j : '' + j,
-        T: Math.floor(Math.random() * 2 + 3)
-    })
-}
+// for (let j = 0; j <= 21; j++) {
+//     db.add({
+//         date: `2018-06-01`,
+//         hours: j < 10 ? '0' + j : '' + j,
+//         T: Math.floor(Math.random() * 2 + 3)
+//     })
+// }

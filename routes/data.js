@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 });
 
 function changeData(data) {
-    return data.slice(data.length - 12, data.length)
+    return data.slice(data.length - 6, data.length)
 }
 
 module.exports = router;
