@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <h2>{{ title }}</h2>
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>
+                        <h6>实时数据展示</h6>
+                    </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <p id="live-T">
+                                {{ nowData.date + ' ' + nowData.hours + '时 '}}
+                                <strong class="{{ nowData.T>=2 && nowData.T<=8 ? 'text-success':'text-danger' }}">{{ nowData.T }}</strong>℃
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        <h6>数据采集点分布</h6>
+                    </p>
+                    <div class="card img-fluid bg-dark">
+                        <img class="card-img-top" src="./images/map_black_bg.png" alt="Card image">
+                        <div class="card-img-overlay">
+                            <div class="region-list active postition-2 online-node">
+                                <div class="area-box">
+                                    <span class="dot"></span>
+                                    <span class="pulse delay-01"></span>
+                                    <span class="pulse delay-02"></span>
+                                    <span class="pulse delay-03"></span>
+                                </div>
+                                <div class="show-regin">
+                                    <span>海口</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <p>
+                        <h6>温度折线图</h6>
+                    </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="chart" style="height: 500px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/javascripts/main.js"></script>
+
+</html>
