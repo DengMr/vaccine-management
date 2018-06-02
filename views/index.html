@@ -23,6 +23,13 @@
             </div>
         </nav>
         <div class="container">
+            {{ if nowData.T<=2 || nowData.T>=8 }}
+            <p></p>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>警告!</strong> 存放环境温度超出正常范围, 请及时处理!
+            </div>
+            {{ /if }}
             <div class="row">
                 <div class="col-sm-5">
                     <p>
