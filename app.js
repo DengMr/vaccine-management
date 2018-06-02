@@ -5,10 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var artTemp = require('art-template');
 var expArtTmp = require('express-art-template');
-var creData  = require('./data/index')
+var creData = require('./data/index')
 
 var indexRouter = require('./routes/index');
 var dataRouter = require('./routes/data');
+var homeRouter = require('./routes/home')
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/data', dataRouter);
+app.use('/home', homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

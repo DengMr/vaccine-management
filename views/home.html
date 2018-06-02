@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <p></p>
+            {{ if error }}
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>请输入正确的数值!</strong>
+            </div>
+            {{ /if }}
+            {{ if success }}
+            <div class="alert alert-success alert-dismissable fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                更新数据<strong>成功!</strong>
+            </div>
+            {{ /if }}
+            <p>
+                <h6>实时温度</h6>
+            </p>
+            <div class="card">
+                <div class="card-body">
+                    {{ nowData.date + ' ' + nowData.hours + '时 '}}
+                    <strong class="{{ nowData.T>=2 && nowData.T<=8 ? 'text-success':'text-danger' }}">{{ nowData.T }}</strong>℃
+                </div>
+            </div>
+            <p></p>
+            <form>
+                <div class="form-group">
+                    <label for="usr">输入一个数值:</label>
+                    <input type="text" class="form-control" id="usr" name="num">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>
+
+</html>
